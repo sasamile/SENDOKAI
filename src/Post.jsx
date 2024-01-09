@@ -1,32 +1,17 @@
-import { useEffect } from "react";
-import { useState } from "react";
+
+import { senkus } from ".";
 
 function Post() {
-  const [senkus, setSenkus] = useState([]);
-
-  async function Api() {
-    try {
-      const res = await fetch("https://nodejs-api-b6yf.onrender.com/1");
-      const data = await res.json();
-
-      setSenkus(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  useEffect(() => {
-    Api();
-  }, []);
-
+ 
   return (
     <section className="bg-gradient-to-b from-gray-300 to-gray-600 w-full py-12">
       <h1 className=" text-center text-6xl font-bold uppercase font-Over text-black/70">Sendokai</h1>
     <ul className="wrapper grid md:grid-cols-2 gap-12  py-12 w-[90%]">
       
-      {senkus?.map((user) => (
+      {senkus.map((user) => (
         <li
           key={user.id}
-          className="flex bg-gradient-to-t to-gray-700 from-gray-400  gap-4 p-6 rounded-2xl max-sm:flex-wrap justify-center md:flex-col xl:flex-row"
+          className="flex bg-gradient-to-t to-gray-700 from-gray-400  gap-4 p-6 rounded-2xl max-sm:flex-wrap justify-center md:flex-col xl:flex-row items-center"
         >
           <img
             src={user.imagen}
